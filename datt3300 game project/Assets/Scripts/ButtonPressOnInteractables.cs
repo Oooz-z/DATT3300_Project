@@ -6,6 +6,8 @@ public class ButtonPressOnInteractables : MonoBehaviour
 {
     private Interactables interactable;
 
+    public GameObject dialoguePanel;
+
     private void Start()
     {
         // Try to find an Interactables component on this object
@@ -13,7 +15,11 @@ public class ButtonPressOnInteractables : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Interaction();
+        if (!dialoguePanel.activeSelf)
+        {
+            Interaction();
+        }
+        
 
     }
 
@@ -22,51 +28,51 @@ public class ButtonPressOnInteractables : MonoBehaviour
     {
         if (gameObject.name == "Thermostat")
         {
-            Debug.Log("Thermostat"); // do something else;
+            DialogueManager.Instance.ShowDialogue("This is a Thermostat.");
         }
         else if (gameObject.name == "Fan")
         {
-            Debug.Log("Fan");
+            DialogueManager.Instance.ShowDialogue("This is a Fan.");
         }
         else if (gameObject.name == "Body")
         {
-            Debug.Log("Body");
+            DialogueManager.Instance.ShowDialogue("This is a Body.");
         }
         else if (gameObject.name == "Lightbulb_L" || gameObject.name == "Lightbulb_R")
         {
-            Debug.Log("Lightbulb");
+            DialogueManager.Instance.ShowDialogue("This is a Light bulb.");
         }
         else if (gameObject.name == "Window")
         {
-            Debug.Log("Window");
+            DialogueManager.Instance.ShowDialogue("This is a Window.");
         }
         else if (gameObject.name == "Handprints")
         {
-            Debug.Log("Handprints");
+            DialogueManager.Instance.ShowDialogue("This is a Handprint.");
         }
         else if (gameObject.name == "Door_knob")
         {
-            Debug.Log("Door_knob");
+            DialogueManager.Instance.ShowDialogue("This is a Door knob.");
         }
         else if (gameObject.name == "Mirror")
         {
-            Debug.Log("Mirror");
+            DialogueManager.Instance.ShowDialogue("This is a Mirror.");
         }
         else if (gameObject.name == "Toothbrushes")
         {
-            Debug.Log("Toothbrushes");
+            DialogueManager.Instance.ShowDialogue("This is a Toothbrush.");
         }
         else if (gameObject.name == "Shower_head")
         {
-            Debug.Log("Shower_head");
+            DialogueManager.Instance.ShowDialogue("This is a Shower head.");
         }
         else if (gameObject.name == "Footprints")
         {
-            Debug.Log("Footprints");
+            DialogueManager.Instance.ShowDialogue("This is a FootPrint.");
         }
         else if (gameObject.name == "Footprints (1)")
         {
-            Debug.Log("Footprints (1)");
+            DialogueManager.Instance.ShowDialogue("This is a Footprint (1).");
         }
 
 
@@ -82,7 +88,10 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        MouseControl.instance.Clickable();
+        if (!dialoguePanel.activeSelf)
+        {
+            MouseControl.instance.Clickable();
+        }
     }
 
     public void OnMouseExit()
