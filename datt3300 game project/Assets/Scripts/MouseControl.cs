@@ -8,9 +8,6 @@ public class MouseControl : MonoBehaviour
 
     public Texture2D defaultCursor, clickableCursor;
 
-
-
-
     private void Start()
     {
         Default();
@@ -38,11 +35,6 @@ public class MouseControl : MonoBehaviour
     {
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
-
-
-
-
-
 
 
 }

@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class ButtonPressOnInteractables : MonoBehaviour
 {
+    private Interactables interactable;
 
+    private void Start()
+    {
+        // Try to find an Interactables component on this object
+        interactable = GetComponent<Interactables>();
+    }
     private void OnMouseDown()
     {
         Interaction();
 
     }
 
+
     void Interaction()
     {
         if (gameObject.name == "Thermostat")
         {
-            Debug.Log("Thermostat");
+            Debug.Log("Thermostat"); // do something else;
         }
         else if (gameObject.name == "Fan")
         {
@@ -61,7 +68,13 @@ public class ButtonPressOnInteractables : MonoBehaviour
         {
             Debug.Log("Footprints (1)");
         }
-      
+
+
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
+
     }
 
 
@@ -76,5 +89,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
     {
         MouseControl.instance.Default();
     }
+
+
 
 }
