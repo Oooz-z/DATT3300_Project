@@ -7,6 +7,7 @@ public class Interactables : MonoBehaviour
     public InventoryManager inventoryManager;
     public Item itemToPickup;
 
+
     public void Interact()
     {
         if (itemToPickup != null)
@@ -16,12 +17,14 @@ public class Interactables : MonoBehaviour
 
             if (result == true)
             {
-                Debug.Log("Item added");
+               // Debug.Log("Item added");
             }
             else
             {
-                Debug.Log("Item Not added");
+               // Debug.Log("Item Not added");
             }
+           
+            
         }
     }
 }

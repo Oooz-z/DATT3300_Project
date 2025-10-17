@@ -7,6 +7,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
     private Interactables interactable;
 
     public GameObject dialoguePanel;
+    public GameObject deductionPanel;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!dialoguePanel.activeSelf)
+        if (!dialoguePanel.activeSelf && !deductionPanel.activeSelf)
         {
             Interaction();
         }
@@ -88,7 +89,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (!dialoguePanel.activeSelf)
+        if (!dialoguePanel.activeSelf && !deductionPanel.activeSelf)
         {
             MouseControl.instance.Clickable();
         }

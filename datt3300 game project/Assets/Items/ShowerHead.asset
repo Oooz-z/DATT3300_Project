@@ -15,3 +15,4 @@ MonoBehaviour:
   range: {x: 5, y: 4}
   stackable: 0
   image: {fileID: 21300000, guid: ee183a94e6eb71841975ce5ac78b54cc, type: 3}
+  itemName: ShowerHead

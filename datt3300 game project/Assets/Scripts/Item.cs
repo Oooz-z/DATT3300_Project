@@ -17,6 +17,8 @@ public class Item : ScriptableObject
     [Header("Both")]
     public Sprite image;
 
+    [Header("General Info")]
+    public string itemName;
 
 }
 
