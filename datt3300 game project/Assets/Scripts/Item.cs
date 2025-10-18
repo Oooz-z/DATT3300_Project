@@ -23,6 +23,9 @@ public class Item : ScriptableObject
     [Header("Item Type")]
     public string type;
 
+    [Header("Dialogue")]
+    [TextArea(2, 5)]
+    public string dialogueLine;
 }
 
 
