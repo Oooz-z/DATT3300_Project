@@ -67,8 +67,6 @@ public class DeductionPanelManager : MonoBehaviour
         
     }
 
-
-
     public bool isSlotsFull()
     {
         for (int i = 0; i < deductionPanelSlot.Length; i++)

@@ -20,6 +20,9 @@ public class Item : ScriptableObject
     [Header("General Info")]
     public string itemName;
 
+    [Header("Item Type")]
+    public string type;
+
 }
 
 

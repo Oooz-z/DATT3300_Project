@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e7367537a88f3e428b15bc8c0780d31, type: 3}
-  m_Name: Footprints
+  m_Name: Toothbrush
   m_EditorClassIdentifier: 
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: da1eee1e8bd05e542bfb413f31c623f9, type: 3}
-  itemName: Footprints
+  image: {fileID: 21300000, guid: c27372ded27b5534f9f61d23e1b6f74c, type: 3}
+  itemName: Toothbrush
   type: item

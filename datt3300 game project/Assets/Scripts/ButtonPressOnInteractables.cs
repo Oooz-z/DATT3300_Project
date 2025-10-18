@@ -27,65 +27,14 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     void Interaction()
     {
-        if (gameObject.name == "Thermostat")
+        if (interactable != null && interactable.itemToPickup != null)
         {
-            DialogueManager.Instance.ShowDialogue("This is a Thermostat.");
-        }
-        else if (gameObject.name == "Fan")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Fan.");
-        }
-        else if (gameObject.name == "Body")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Body.");
-        }
-        else if (gameObject.name == "Lightbulb_L" || gameObject.name == "Lightbulb_R")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Light bulb.");
-        }
-        else if (gameObject.name == "Window")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Window.");
-        }
-        else if (gameObject.name == "Handprints")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Handprint.");
-        }
-        else if (gameObject.name == "Door_knob")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Door knob.");
-        }
-        else if (gameObject.name == "Mirror")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Mirror.");
-        }
-        else if (gameObject.name == "Toothbrushes")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Toothbrush.");
-        }
-        else if (gameObject.name == "Shower_head")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Shower head.");
-        }
-        else if (gameObject.name == "Footprints")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a FootPrint.");
-        }
-        else if (gameObject.name == "Footprints (1)")
-        {
-            DialogueManager.Instance.ShowDialogue("This is a Footprint (1).");
-        }
-
-
-        if (interactable != null)
-        {
+            var item = interactable.itemToPickup;
+            DialogueManager.Instance.ShowDialogue(item.itemName);
             interactable.Interact();
         }
 
     }
-
-
-
 
     public void OnMouseEnter()
     {

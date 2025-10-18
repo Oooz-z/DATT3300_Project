@@ -6,8 +6,18 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] inventorySlot;
     public GameObject inventoryItemPrefab;
+
+
+    private List<Item> collectedItems = new List<Item>();
     public bool AddItem(Item item)
     {
+
+        if (collectedItems.Contains(item))
+        {
+           // Debug.Log("Item already collected: " + item.itemName);
+            return false;
+        }
+
         for (int i = 0; i < inventorySlot.Length; i++)
         {
             InventorySlot slot = inventorySlot[i];
@@ -15,10 +25,13 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                collectedItems.Add(item); // Track it
                 return true;
             }
         }
+
         return false;
+
     }
 
     void SpawnNewItem(Item item, InventorySlot slot)
