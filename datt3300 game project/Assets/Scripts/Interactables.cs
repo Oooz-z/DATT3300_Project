@@ -6,6 +6,7 @@ public class Interactables : MonoBehaviour
 {
     public Item itemToPickup;
 
+
     public virtual void Interact()
     {
 

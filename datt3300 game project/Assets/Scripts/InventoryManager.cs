@@ -9,6 +9,12 @@ public class InventoryManager : MonoBehaviour
 
 
     private List<Item> collectedItems = new List<Item>();
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public bool AddItem(Item item)
     {
 

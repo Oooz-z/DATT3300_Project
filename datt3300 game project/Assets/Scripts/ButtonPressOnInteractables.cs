@@ -20,17 +20,13 @@ public class ButtonPressOnInteractables : MonoBehaviour
         {
             Interaction();
         }
-        
-
     }
-
 
     void Interaction()
     {
         if (interactable != null && interactable.itemToPickup != null)
         {
             var item = interactable.itemToPickup;
-            DialogueManager.Instance.ShowDialogue(item.dialogueLine); //changed from itemName --> dialogueLine
             interactable.Interact();
         }
 

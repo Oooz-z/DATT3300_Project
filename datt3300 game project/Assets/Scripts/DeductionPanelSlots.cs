@@ -8,7 +8,13 @@ public class DeductionPanelSlots : MonoBehaviour, IDropHandler
     
     public DeductionPanelManager deductionPanelManager;
 
-    public int slotID; 
+    public int slotID;
+
+
+    private void Awake()
+    {
+      //  DontDestroyOnLoad(transform.root.gameObject);
+    }
 
     public void OnDrop(PointerEventData eventData)
     {

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-
     public GameObject dialoguePanel;
     public TMP_Text dialogueText;
 
@@ -21,16 +21,28 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void ShowDialogue(string dialogueLine) //changed from itemName --> dialogueLine
+
+    // for collectable items
+    public void ShowCollectableDialogue(string dialogueLine) //changed from itemName --> dialogueLine
     {
+        NPCDialogueController.Instance.ResetUI();
         dialoguePanel.SetActive(true);
         dialogueText.text = dialogueLine;
 
     }
 
+    // For NPC
+    public void ShowNPCDialogue(string dialogueLine)
+    {
+        dialoguePanel.SetActive(true);
+        dialogueText.text = dialogueLine;
+    }
+
+
     public void HideDialogue()
     {
         dialoguePanel.SetActive(false);
+      
     }
 
 }

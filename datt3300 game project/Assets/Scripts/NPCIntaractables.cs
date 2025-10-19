@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NPCIntaractables : Interactables
 {
-   public override void Interact()
+    public override void Interact()
     {
-        Debug.Log("NPC interaction logic here.");
+        NPCDialogueController.Instance.NPCEvent();
     }
 }

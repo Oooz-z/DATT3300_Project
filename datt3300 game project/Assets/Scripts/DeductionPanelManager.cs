@@ -27,6 +27,12 @@ public class DeductionPanelManager : MonoBehaviour
 
    [HideInInspector] private bool placedCorrectly = false;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void CheckSLot(int slotID, InventoryItem item)
     {
         
