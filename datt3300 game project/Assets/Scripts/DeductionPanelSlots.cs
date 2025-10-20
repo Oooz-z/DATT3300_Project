@@ -28,7 +28,7 @@ public class DeductionPanelSlots : MonoBehaviour, IDropHandler
            // Debug.Log(inventoryItem.item.itemName);
 
 
-            if (deductionPanelManager != null)
+            if (DeductionPanelManager.Instance != null)
             {
                StartCoroutine(DelayedCheck(inventoryItem));
             }
@@ -41,7 +41,7 @@ public class DeductionPanelSlots : MonoBehaviour, IDropHandler
     {
         yield return new WaitForEndOfFrame();
 
-        deductionPanelManager.CheckSLot(slotID, item);
+        DeductionPanelManager.Instance.CheckSLot(slotID, item);
         
     }
 

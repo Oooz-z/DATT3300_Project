@@ -22,6 +22,8 @@ public class NPCDialogueController : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
+        ResetUI();
+
     }
 
     public void NPCEvent()

@@ -34,6 +34,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.image;
+        image.enabled = true;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

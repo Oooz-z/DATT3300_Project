@@ -17,22 +17,29 @@ public class SlotAnswer
 
 public class DeductionPanelManager : MonoBehaviour
 {
-    public DeductionPanelSlots[] deductionPanelSlot;
+    private static DeductionPanelManager instance;
+    public static DeductionPanelManager Instance => instance;
 
+    public DeductionPanelSlots[] deductionPanelSlot;
 
     public List<SlotAnswer> correctAnswers = new List<SlotAnswer>();
 
 
     public TMP_Text prompt;
+    public GameObject deductionPanel;
 
    [HideInInspector] private bool placedCorrectly = false;
 
-
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-    }
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        instance = this;
+    }
     public void CheckSLot(int slotID, InventoryItem item)
     {
         
@@ -81,6 +88,7 @@ public class DeductionPanelManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
+                Debug.Log("Not filled");
                 return false; // not full yet
             }
             

@@ -1,19 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    private static InventoryManager instance;
+    public static InventoryManager Instance => instance;
+
     public InventorySlot[] inventorySlot;
     public GameObject inventoryItemPrefab;
 
 
     private List<Item> collectedItems = new List<Item>();
 
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
+        
     }
+
 
     public bool AddItem(Item item)
     {
@@ -43,7 +58,21 @@ public class InventoryManager : MonoBehaviour
     void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
+
+
+        newItemGo.transform.SetParent(slot.transform, false); //
+        newItemGo.transform.localScale = Vector3.one; //
+        newItemGo.transform.localPosition = Vector3.zero; //
+
+
+
+
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
+
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(slot.GetComponent<RectTransform>()); //
     }
+
+
 }

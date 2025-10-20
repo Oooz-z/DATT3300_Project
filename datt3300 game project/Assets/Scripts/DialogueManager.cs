@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
         else Destroy(gameObject);
 
         dialoguePanel.SetActive(false);
+
     }
 
 
@@ -25,7 +26,11 @@ public class DialogueManager : MonoBehaviour
     // for collectable items
     public void ShowCollectableDialogue(string dialogueLine) //changed from itemName --> dialogueLine
     {
-        NPCDialogueController.Instance.ResetUI();
+        if (NPCDialogueController.Instance != null)
+        {
+            NPCDialogueController.Instance.ResetUI();
+        }
+        
         dialoguePanel.SetActive(true);
         dialogueText.text = dialogueLine;
 

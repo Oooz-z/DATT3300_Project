@@ -7,8 +7,6 @@ public class ButtonPressOnInteractables : MonoBehaviour
     private Interactables interactable;
 
     public GameObject dialoguePanel;
-    public GameObject deductionPanel;
-
     private void Start()
     {
         // Try to find an Interactables component on this object
@@ -16,7 +14,8 @@ public class ButtonPressOnInteractables : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!dialoguePanel.activeSelf && !deductionPanel.activeSelf)
+        
+        if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
         {
             Interaction();
         }
@@ -34,7 +33,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if (!dialoguePanel.activeSelf && !deductionPanel.activeSelf)
+        if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
         {
             MouseControl.instance.Clickable();
         }
@@ -45,6 +44,9 @@ public class ButtonPressOnInteractables : MonoBehaviour
         MouseControl.instance.Default();
     }
 
-
+    private bool isDeductionPanelActive()
+    {
+        return DeductionPanelManager.Instance != null && DeductionPanelManager.Instance.deductionPanel.activeSelf;
+}
 
 }

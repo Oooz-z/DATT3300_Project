@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e7367537a88f3e428b15bc8c0780d31, type: 3}
-  m_Name: Body
+  m_Name: Placeholder1
   m_EditorClassIdentifier: 
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 21300000, guid: bcf669272e26efd4ea7ad99894f2f8f7, type: 3}
-  itemName: Body
+  image: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: Placeholder
   type: item
-  dialogueLine: 'This is a body.
-
-    A dead body.'
+  dialogueLine: This is a placeholder
