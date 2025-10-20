@@ -17,4 +17,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c54ff954fdfaf144cb5b54f5747e5647, type: 3}
   itemName: Thermostat
   type: item
-  dialogueLine: "This is a Thermostat, \na big thermostat."
+  dialogueLine: 'The thermostat blinks 37 degrees with humidity at 80 percent.
+
+    It
+    feels stifling in the room.'

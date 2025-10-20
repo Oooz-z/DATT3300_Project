@@ -17,3 +17,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: b8a54b9e82e148d4b90978273c93cf19, type: 3}
   itemName: Lightbulb
   type: item
+  dialogueLine: 'The lightbulb is cool to touch. '

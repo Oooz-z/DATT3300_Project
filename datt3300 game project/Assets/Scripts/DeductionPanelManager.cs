@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class SlotAnswer
 {
     public int slotID;
-    public string correctItemName;
+    public List<string> correctItemNames;
 }
 
 
@@ -28,8 +28,6 @@ public class DeductionPanelManager : MonoBehaviour
     public TMP_Text prompt;
     public GameObject deductionPanel;
 
-   [HideInInspector] private bool placedCorrectly = false;
-
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -42,43 +40,22 @@ public class DeductionPanelManager : MonoBehaviour
     }
     public void CheckSLot(int slotID, InventoryItem item)
     {
-        
-
-        foreach (var answer in correctAnswers)
-        {
-            if (answer.slotID == slotID)
-            {
-                if (item.item.itemName == answer.correctItemName)
-                {
-                   // Debug.Log("Correct");
-                    placedCorrectly = true;
-                    
-                }
-                else
-                {
-                   // Debug.Log("Incorrect");
-                    placedCorrectly = false;
-                }
-                break;
-            }
-        }
 
         if (isSlotsFull())
         {
-            if (placedCorrectly == true)
+            if (AllAnswersCorrect())
             {
-               // Debug.Log("Filled correctly");
                 prompt.text = "Deduction Completed!";
             }
             else
             {
-               // Debug.Log("One or more items placed incorrectly");
                 prompt.text = "One or more items placed incorrectly.";
             }
-            
         }
-        
+
+
     }
+        
 
     public bool isSlotsFull()
     {
@@ -88,8 +65,8 @@ public class DeductionPanelManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
-                Debug.Log("Not filled");
-                return false; // not full yet
+                //Debug.Log("Not filled");
+                return false; 
             }
             
             
@@ -98,6 +75,38 @@ public class DeductionPanelManager : MonoBehaviour
         return true;
     }
 
+    private bool AllAnswersCorrect()
+    {
+        foreach (var slot in deductionPanelSlot)
+        {
+            int slotID = slot.slotID;
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemInSlot == null)
+            {
+                return false; 
+            }
+               
+
+            bool matchFound = false;
+
+            foreach (var answer in correctAnswers)
+            {
+                if (answer.slotID == slotID && answer.correctItemNames.Contains(itemInSlot.item.itemName))
+                {
+                    // Debug.Log ("Correct");
+                    matchFound = true;
+                    break;
+                }
+            }
+
+            if (!matchFound)
+                // Debug.Log ("Incorrect");
+                return false;
+        }
+
+        return true; 
+    }
 
 
 

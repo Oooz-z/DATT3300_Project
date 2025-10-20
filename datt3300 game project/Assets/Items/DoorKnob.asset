@@ -17,4 +17,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 71294bd2a48eaeb42961e88d767ce2fc, type: 3}
   itemName: DoorKnob
   type: item
-  dialogueLine: 
+  dialogueLine: The knob turns now, but closer inspection shows scuff marks near
+    the keyhole and a faint residue, possibly lubricant or graphite powder. The latch
+    is slightly misaligned.

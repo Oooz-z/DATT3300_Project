@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: {x: 5, y: 4}
   stackable: 0
-  image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemName: Ghost
   type: NPC
   dialogueLine: this is a ghost

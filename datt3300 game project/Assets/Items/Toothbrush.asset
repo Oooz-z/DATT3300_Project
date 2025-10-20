@@ -17,3 +17,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c27372ded27b5534f9f61d23e1b6f74c, type: 3}
   itemName: Toothbrush
   type: item
+  dialogueLine: Two toothbrushes stand side by side in a ceramic cup. The cup is
+    speckled with dried toothpaste and water marks. Juding by the bristle wear and
+    placement, both have been used recently.
