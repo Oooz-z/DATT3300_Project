@@ -94,14 +94,14 @@ public class DeductionPanelManager : MonoBehaviour
             {
                 if (answer.slotID == slotID && answer.correctItemNames.Contains(itemInSlot.item.itemName))
                 {
-                    // Debug.Log ("Correct");
+                    Debug.Log ("Correct");
                     matchFound = true;
                     break;
                 }
             }
 
             if (!matchFound)
-                // Debug.Log ("Incorrect");
+                Debug.Log ("Incorrect");
                 return false;
         }
 
