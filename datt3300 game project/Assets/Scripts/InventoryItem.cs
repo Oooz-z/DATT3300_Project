@@ -38,7 +38,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
 
     public void OnBeginDrag(PointerEventData eventData)
-    { 
+    {
         //Debug.Log("Begin drag");
         SetRaycasts(false);
         parentAfterDrag = transform.parent;
@@ -50,19 +50,51 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-       // Debug.Log("Dragging");
+        // Debug.Log("Dragging");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("End drag");
+
         SetRaycasts(true);
-        transform.SetParent(parentAfterDrag);
-        transform.localPosition = Vector3.zero;
 
+        // Get the slot we are dropping onto (if any)
+        DeductionPanelSlots dropTarget = eventData.pointerCurrentRaycast.gameObject?.GetComponent<DeductionPanelSlots>();
 
+        // Get the previous slot (if the item was in a slot before dragging)
+        DeductionPanelSlots previousSlot = parentAfterDrag != null ? parentAfterDrag.GetComponent<DeductionPanelSlots>() : null;
+
+        if (dropTarget != null)
+        {
+            // If the item was in a previous slot, clear it
+            if (previousSlot != null && previousSlot != dropTarget)
+                previousSlot.SetItem(null);
+
+            // Reparent the item to the new slot
+            transform.SetParent(dropTarget.transform);
+            transform.localPosition = Vector3.zero;
+
+            // Assign the item to the new slot
+            dropTarget.SetItem(this);
+
+            // Notify the manager about this slot
+            DeductionPanelManager.Instance.CheckSlot(dropTarget.slotID, this);
+        }
+        else
+        {
+            // Dropped outside any slot
+            // Remove from previous slot (if it existed)
+            if (previousSlot != null)
+                previousSlot.SetItem(null);
+
+            // Return to original parent
+            if (parentAfterDrag != null)
+            {
+                transform.SetParent(parentAfterDrag);
+                transform.localPosition = Vector3.zero;
+            }
+        }
     }
-
-}
+    }
  

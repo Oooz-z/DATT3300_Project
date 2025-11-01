@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class InventoryManager : MonoBehaviour
 
     private List<Item> collectedItems = new List<Item>();
 
+    private int itemCounter;
+    public TMP_Text prompt;
 
     private void Awake()
     {
@@ -47,6 +50,9 @@ public class InventoryManager : MonoBehaviour
             {
                 SpawnNewItem(item, slot);
                 collectedItems.Add(item); // Track it
+                itemCounter++;
+                //Debug.Log($"Item {itemCounter}/10");
+                prompt.text = $"Collecton: {itemCounter}/10";
                 return true;
             }
         }

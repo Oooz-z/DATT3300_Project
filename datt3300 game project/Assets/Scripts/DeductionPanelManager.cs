@@ -24,7 +24,6 @@ public class DeductionPanelManager : MonoBehaviour
 
     public List<SlotAnswer> correctAnswers = new List<SlotAnswer>();
 
-
     public TMP_Text prompt;
     public GameObject deductionPanel;
 
@@ -38,10 +37,78 @@ public class DeductionPanelManager : MonoBehaviour
 
         instance = this;
     }
-    public void CheckSLot(int slotID, InventoryItem item)
-    {
 
-        if (isSlotsFull())
+
+    // helper function 1: get the item currently in the slot
+    private InventoryItem GetItemInSlot(DeductionPanelSlots slot)
+    {
+        return slot.currentItem;
+    }
+
+    // helper function 2: check is item name is correct for the given slot
+    private bool IsItemCorrect(int slotID, string itemName)
+    {
+        foreach(var answer in correctAnswers)
+        {
+            if (answer.slotID == slotID && answer.correctItemNames.Contains(itemName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // helper function 3: get current slot by ID
+    private DeductionPanelSlots GetSlotByID(int slotID)
+    {
+        foreach (var slot in  deductionPanelSlot)
+        {
+            if (slot.slotID == slotID)
+            {
+                return slot;
+            }
+        }
+        return null;
+    }
+
+    public void CheckSlot(int slotID, InventoryItem item)
+    {
+        
+        DeductionPanelSlots currentSlot = GetSlotByID(slotID);
+
+        if (currentSlot == null) return;
+        if (item == null)
+        {
+            currentSlot.ResetColor();
+            return;
+        }
+
+
+        bool isCorrect = IsItemCorrect(slotID, item.item.itemName);
+        // check individual slot
+
+  
+            Image slotImage = currentSlot.GetComponent<Image>();
+
+        if (slotImage != null)
+        {
+          if (isCorrect)
+          {
+            Debug.Log($"Correct item '{item.item.itemName}' placed in slot {slotID}.");
+            currentSlot.SetColor(Color.green);
+          }
+          else
+          {
+            Debug.Log($"Incorrect item '{item.item.itemName}' placed in slot {slotID}.");
+            currentSlot.SetColor(Color.red);
+          }
+
+        }
+
+
+
+        // check completion
+        if (IsSlotsFull())
         {
             if (AllAnswersCorrect())
             {
@@ -53,60 +120,38 @@ public class DeductionPanelManager : MonoBehaviour
             }
         }
 
-
     }
-        
 
-    public bool isSlotsFull()
+    private bool IsSlotsFull()
     {
-        for (int i = 0; i < deductionPanelSlot.Length; i++)
+        foreach (var slot in deductionPanelSlot)
         {
-            DeductionPanelSlots slot = deductionPanelSlot[i];
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot == null)
+            if (GetItemInSlot(slot) == null)
             {
-                //Debug.Log("Not filled");
-                return false; 
+                return false;
             }
-            
-            
-        } 
-        
+        }
         return true;
     }
 
     private bool AllAnswersCorrect()
     {
-        foreach (var slot in deductionPanelSlot)
+        foreach(var slot in deductionPanelSlot)
         {
-            int slotID = slot.slotID;
-            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            InventoryItem item = GetItemInSlot(slot);
 
-            if (itemInSlot == null)
+            if (item == null)
             {
-                return false; 
-            }
-               
-
-            bool matchFound = false;
-
-            foreach (var answer in correctAnswers)
-            {
-                if (answer.slotID == slotID && answer.correctItemNames.Contains(itemInSlot.item.itemName))
-                {
-                    Debug.Log ("Correct");
-                    matchFound = true;
-                    break;
-                }
-            }
-
-            if (!matchFound)
-                Debug.Log ("Incorrect");
                 return false;
+            }
+            if (!IsItemCorrect(slot.slotID, item.item.itemName))
+            {
+                return false;
+            }
         }
-
-        return true; 
+        return true;
     }
+
 
 
 

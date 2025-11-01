@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(string sceneName) // hook up with a button
     {
+        if (sceneName == "MainMenu")
+        {
+            DestroyAllPersistentObjects();
+
+        }
         SceneManager.LoadScene(sceneName);
     }
 
@@ -32,5 +37,23 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    private void DestroyAllPersistentObjects()
+    {
+        Scene dontDestroyScene = SceneManager.GetSceneByName("DontDestroyOnLoad");
+
+        if (!dontDestroyScene.IsValid())
+        {
+            Debug.Log("No DontDestroyOnLoad scene found.");
+            return;
+        }
+
+        GameObject[] rootObjects = dontDestroyScene.GetRootGameObjects();
+
+        foreach (GameObject obj in rootObjects)
+        {
+            Destroy(obj);
+        }
+    
+    }
 
 }

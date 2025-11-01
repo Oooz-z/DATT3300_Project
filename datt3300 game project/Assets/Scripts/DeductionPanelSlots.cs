@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DeductionPanelSlots : MonoBehaviour, IDropHandler
 {
@@ -10,40 +11,53 @@ public class DeductionPanelSlots : MonoBehaviour, IDropHandler
 
     public int slotID;
 
+    private Image slotImage;
+
+    public InventoryItem currentItem;
+
 
     private void Awake()
     {
-      //  DontDestroyOnLoad(transform.root.gameObject);
+      slotImage = GetComponent<Image>();
+      if (slotImage != null )
+        {
+            ResetColor();
+        }
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        //Debug.Log("DROP on slot: " + gameObject.name);
-
-        if (transform.childCount == 0)
-        {
-            InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
-            inventoryItem.parentAfterDrag = transform;
-
-           // Debug.Log(inventoryItem.item.itemName);
-
-
-            if (DeductionPanelManager.Instance != null)
-            {
-               StartCoroutine(DelayedCheck(inventoryItem));
-            }
-          
-        } 
-          
-    }
-
-    private IEnumerator DelayedCheck(InventoryItem item)
-    {
-        yield return new WaitForEndOfFrame();
-
-        DeductionPanelManager.Instance.CheckSLot(slotID, item);
+        var droppedItem = eventData.pointerDrag?.GetComponent<InventoryItem>();
+        if (droppedItem == null) return;
         
+        SetItem(droppedItem);
+        // Notify the manager
+        DeductionPanelManager.Instance.CheckSlot(slotID, droppedItem);
     }
 
+    public void ResetColor()
+    {
+        if (slotImage != null)
+        {
+            slotImage.color = new Color(0.969f, 0.898f, 0.925f);
+        }
+    }
+
+    public void SetColor(Color color)
+    {
+        if (slotImage != null)
+        {
+            slotImage.color = color;
+        }
+    }
+
+    public void SetItem(InventoryItem item)
+    {
+        currentItem = item;
+        if (item == null)
+        {
+            ResetColor();
+        }
+    }
 
 }
