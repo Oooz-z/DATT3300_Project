@@ -21,4 +21,19 @@ public class DontDestroy : MonoBehaviour
         
     }
 
+
+
+
+    public static void DestroyAll()
+    {
+        for (int i = 0; i < persistentObjects.Length; i++)
+        {
+            if (persistentObjects[i] != null)
+            {
+                Destroy(persistentObjects[i]);
+                persistentObjects[i] = null;
+            }
+        }
+    }
+
 }
