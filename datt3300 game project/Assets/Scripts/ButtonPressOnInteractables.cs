@@ -14,11 +14,16 @@ public class ButtonPressOnInteractables : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        
+        /*
         if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
         {
             Interaction();
+        }*/
+        if (!isDeductionPanelActive())
+        {
+            Interaction();
         }
+
     }
 
     void Interaction()
@@ -33,7 +38,13 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
+        /*
         if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
+        {
+            MouseControl.instance.Clickable();
+        }
+        */
+        if ( !isDeductionPanelActive())
         {
             MouseControl.instance.Clickable();
         }

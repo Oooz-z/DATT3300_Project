@@ -18,6 +18,7 @@ public class InventoryManager : MonoBehaviour
 
     private int itemCounter;
     public TMP_Text prompt;
+    public GameObject ItemAddedNotice;
 
     private void Awake()
     {
@@ -52,7 +53,8 @@ public class InventoryManager : MonoBehaviour
                 collectedItems.Add(item); // Track it
                 itemCounter++;
                 //Debug.Log($"Item {itemCounter}/10");
-                prompt.text = $"Collecton: {itemCounter}/10";
+                prompt.text = $"{itemCounter}/10";
+                ItemAddedNotice.SetActive(true);
                 return true;
             }
         }
