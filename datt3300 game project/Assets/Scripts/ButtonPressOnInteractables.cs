@@ -6,7 +6,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
 {
     private Interactables interactable;
 
-    public GameObject dialoguePanel;
+    [SerializeField] Animator dialoguePanelAnimator;
     private void Start()
     {
         // Try to find an Interactables component on this object
@@ -14,15 +14,13 @@ public class ButtonPressOnInteractables : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        /*
-        if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
-        {
-            Interaction();
-        }*/
         if (!isDeductionPanelActive())
         {
             Interaction();
+            dialoguePanelAnimator.SetTrigger("Open");
         }
+
+
 
     }
 
@@ -38,12 +36,6 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        /*
-        if (!dialoguePanel.activeSelf && !isDeductionPanelActive())
-        {
-            MouseControl.instance.Clickable();
-        }
-        */
         if ( !isDeductionPanelActive())
         {
             MouseControl.instance.Clickable();

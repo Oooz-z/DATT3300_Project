@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        dialoguePanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
 
     }
 

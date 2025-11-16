@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &285032204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!61 &459629276
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &474941208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,7 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &634712052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3197,13 +3197,14 @@ GameObject:
   - component: {fileID: 724296550}
   - component: {fileID: 724296552}
   - component: {fileID: 724296551}
+  - component: {fileID: 724296553}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &724296550
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3213,8 +3214,8 @@ RectTransform:
   m_GameObject: {fileID: 724296549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.035, y: 1.035, z: 1.035}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 881238949}
   - {fileID: 1369574635}
@@ -3226,7 +3227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.1046753, y: -18.186096}
+  m_AnchoredPosition: {x: -5.1047363, y: -18.186035}
   m_SizeDelta: {x: -476.83, y: -255.735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724296551
@@ -3267,6 +3268,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724296549}
   m_CullTransparentMesh: 1
+--- !u!95 &724296553
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724296549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc95efcddd289514abe4e8e4d0b3eb8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &755868494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,7 +3491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &760382281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4477,7 +4499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &886097793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4968,7 +4990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &970315872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6003,7 +6025,7 @@ Transform:
   m_GameObject: {fileID: 1252913821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.12, y: 4.6, z: 0.0052128257}
+  m_LocalPosition: {x: -5.101, y: 4.605, z: 0.0052128257}
   m_LocalScale: {x: 0.93576044, y: 0.3942, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6056,7 +6078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &1252913826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6336,28 +6358,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 724296549}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 724296553}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Close
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1369574637
@@ -8164,7 +8174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &1564879748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8535,6 +8545,7 @@ GameObject:
   - component: {fileID: 1705032584}
   - component: {fileID: 1705032583}
   - component: {fileID: 1705032582}
+  - component: {fileID: 1705032585}
   m_Layer: 5
   m_Name: ShowNote
   m_TagString: Untagged
@@ -8552,7 +8563,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1453082917}
   m_Father: {fileID: 1015477321}
@@ -8618,18 +8629,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1705032580}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2087153067}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -8678,18 +8677,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1705032580}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 195844614}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -8714,16 +8701,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1707897629}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1705032585}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1705032583
@@ -8764,6 +8751,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705032580}
   m_CullTransparentMesh: 1
+--- !u!95 &1705032585
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705032580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa48422aa145f5e4795b713ff7f99969, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1707897629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9304,7 +9312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &1804401523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9605,7 +9613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &1872755420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10553,7 +10561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f42d91aeb10234783fa3ce0cdc44c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 724296549}
+  dialoguePanelAnimator: {fileID: 724296553}
 --- !u!114 &2081223609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10709,16 +10717,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1705032580}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1705032585}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: EnableNote
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 701261813}

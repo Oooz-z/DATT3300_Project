@@ -76,7 +76,7 @@ public class OpeningSceneEvent : MonoBehaviour
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(3);
         title.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         eventPos = 6;
         gameManager.LoadLevel("SampleScene");
         
