@@ -95,12 +95,12 @@ public class DeductionPanelManager : MonoBehaviour
           if (isCorrect)
           {
            // Debug.Log($"Correct item '{item.item.itemName}' placed in slot {slotID}.");
-            currentSlot.SetColor(Color.green);
+            currentSlot.SetColor(new Color(0.2431f, 1f, 0.8235f));
           }
           else
           {
            // Debug.Log($"Incorrect item '{item.item.itemName}' placed in slot {slotID}.");
-            currentSlot.SetColor(Color.red);
+            currentSlot.SetColor(new Color(1f, 0.2157f, 0.5216f));
           }
 
         }

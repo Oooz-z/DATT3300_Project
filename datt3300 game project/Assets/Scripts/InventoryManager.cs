@@ -83,4 +83,9 @@ public class InventoryManager : MonoBehaviour
     }
 
 
+    public List<Item> getItemCollected()
+    {
+        return collectedItems;
+    }
+
 }
