@@ -112,7 +112,7 @@ public class DeductionPanelManager : MonoBehaviour
         {
             if (AllAnswersCorrect())
             {
-                prompt.text = "Deduction Completed!";
+                prompt.text = "Deduction Completed! - present the story";
             }
             else
             {

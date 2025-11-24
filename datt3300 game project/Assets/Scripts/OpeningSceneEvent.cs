@@ -15,20 +15,24 @@ public class OpeningSceneEvent : MonoBehaviour
     [SerializeField] int eventPos = 0;
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject fadeOut;
+    [SerializeField] GameObject fadeIn;
     [SerializeField] GameObject title;
 
     void Start()
     {
+        fadeIn.SetActive(true);
         StartCoroutine(EvenStarter());
     }
 
 
     IEnumerator EvenStarter()
     { // event 0;
+        yield return new WaitForSeconds(1);
         dialoguePanel.SetActive(true);
         yield return new WaitForSeconds(1);
         dialogue.text = "this is a dialogue.";
         yield return new WaitForSeconds(1);
+        fadeIn.SetActive(false);
         nextButton.SetActive(true);
         yield return new WaitForSeconds(1);
         skipButton.SetActive(true);
