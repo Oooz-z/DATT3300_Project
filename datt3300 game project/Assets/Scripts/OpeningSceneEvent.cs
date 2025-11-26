@@ -11,7 +11,6 @@ public class OpeningSceneEvent : MonoBehaviour
     public GameObject dialoguePanel;
     public TMP_Text dialogue;
     public GameObject skipButton;
-    [SerializeField] public GameObject nextButton;
     [SerializeField] int eventPos = 0;
     [SerializeField] GameManager gameManager;
     [SerializeField] GameObject fadeOut;
@@ -24,6 +23,33 @@ public class OpeningSceneEvent : MonoBehaviour
         StartCoroutine(EvenStarter());
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (eventPos == 1)
+            {
+                StartCoroutine(EventOne());
+            }
+            else if (eventPos == 2)
+            {
+                StartCoroutine(EventTwo());
+            }
+            else if (eventPos == 3)
+            {
+                StartCoroutine(EventThree());
+            }
+            else if (eventPos == 4)
+            {
+                StartCoroutine(EventFour());
+            }
+            else if (eventPos == 5)
+            {
+                StartCoroutine(EventFive());
+
+            }
+        }
+    }
 
     IEnumerator EvenStarter()
     { // event 0;
@@ -33,7 +59,6 @@ public class OpeningSceneEvent : MonoBehaviour
         dialogue.text = "this is a dialogue.";
         yield return new WaitForSeconds(1);
         fadeIn.SetActive(false);
-        nextButton.SetActive(true);
         yield return new WaitForSeconds(1);
         skipButton.SetActive(true);
         eventPos = 1;
@@ -75,7 +100,6 @@ public class OpeningSceneEvent : MonoBehaviour
         dialogue.text = "";
         yield return new WaitForSeconds(1);
         dialoguePanel.SetActive(false);
-        nextButton.SetActive(false);
         skipButton.SetActive(false);
         fadeOut.SetActive(true);
         yield return new WaitForSeconds(3);
@@ -85,34 +109,12 @@ public class OpeningSceneEvent : MonoBehaviour
         gameManager.LoadLevel("SampleScene");
         
     }
-    public void NextButton()
-    {
-        if (eventPos == 1)
-        {
-            StartCoroutine(EventOne());
-        }
-        else if (eventPos == 2)
-        {
-            StartCoroutine(EventTwo());
-        }
-        else if (eventPos == 3)
-        {
-            StartCoroutine(EventThree());
-        }
-        else if (eventPos == 4)
-        {
-            StartCoroutine(EventFour());
-        }
-        else if (eventPos == 5)
-        {
-            StartCoroutine(EventFive());
-            
-        }
-    }
 
     public void SkipButton()
     {
         StartCoroutine(EventFive());
     }
+
+
 
 }
