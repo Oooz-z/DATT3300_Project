@@ -8,7 +8,6 @@ public class NPCDialogueController : MonoBehaviour
     [SerializeField] int eventPos = 0;
 
     public GameObject nextButton;
-    public GameObject prevButton;
 
     public GameObject choice1Button;
     public GameObject choice2Button;
@@ -37,14 +36,12 @@ public class NPCDialogueController : MonoBehaviour
     {
         DialogueManager.Instance.ShowNPCDialogue("???: You're not like the others... You can SEE me. But what difference does it make? Can you feel what I feel?");
         nextButton.SetActive(true);
-        prevButton.SetActive(false);
         eventPos = 1;
     }
 
     private void EventOne()
     {
         DialogueManager.Instance.ShowNPCDialogue("???: I don't want to leave. Not yet. I don't want to go to that place...alone. I'm not ready. I can't just let it end like this... I hate it...I hate that...that...");
-        prevButton.SetActive(true);
         nextButton.SetActive(true);
         eventPos = 2;
     }
@@ -52,7 +49,7 @@ public class NPCDialogueController : MonoBehaviour
     private void EventTwo()
     {
         DialogueManager.Instance.ShowNPCDialogue("???: I can't remember anything clearly. But the pain-- it's still here. Sharp. Real. Why? What kind of memory leaves only pain behind?");
-        prevButton.SetActive(true);
+
         nextButton.SetActive(true);
         eventPos = 3;
     }
@@ -61,7 +58,7 @@ public class NPCDialogueController : MonoBehaviour
     private void EventThree()
     {
         DialogueManager.Instance.ShowNPCDialogue("???: Something was pressing on my chest...");
-        prevButton.SetActive(true);
+
         nextButton.SetActive(true);
         eventPos = 4;
     }
@@ -69,7 +66,7 @@ public class NPCDialogueController : MonoBehaviour
     private void EventFour()
     {
         DialogueManager.Instance.ShowNPCDialogue("???: If I can't even remember who I was... then whose pain is this?");
-        prevButton.SetActive(false);
+
         nextButton.SetActive(false);
         choice1Button.SetActive(true);
         choice2Button.SetActive(true);
@@ -81,7 +78,7 @@ public class NPCDialogueController : MonoBehaviour
         DialogueManager.Instance.ShowNPCDialogue("???: Then... I've become part of the pain.");
         choice1Button.SetActive(false);
         choice2Button.SetActive(false);
-        prevButton.SetActive(false);
+
         nextButton.SetActive(true);
         eventPos = 6;
     }
@@ -92,7 +89,7 @@ public class NPCDialogueController : MonoBehaviour
         DialogueManager.Instance.ShowNPCDialogue("???: That anger... it's still burning. I can't rest.");
         choice1Button.SetActive(false);
         choice2Button.SetActive(false);
-        prevButton.SetActive(false);
+
         nextButton.SetActive(true);
         eventPos = 7;
     }
@@ -100,7 +97,7 @@ public class NPCDialogueController : MonoBehaviour
     private void EventSeven()
     {
         DialogueManager.Instance.ShowNPCDialogue("???: Whatever's holding me back... it's still hiding from me.");
-        prevButton.SetActive(true);
+
         nextButton.SetActive(false);
         eventPos = 8;
     }
@@ -154,37 +151,11 @@ public class NPCDialogueController : MonoBehaviour
         }
 
     }
-    public void PrevButton()
-    {
-
-        if (eventPos == 8 && flag == false)
-        {
-            EventFive();
-        }
-        else if (eventPos == 8 && flag == true)
-        {
-            EventSix();
-        }
-        else if (eventPos == 4)
-        {
-            EventTwo();
-        }
-        else if (eventPos == 3)
-        {
-            EventOne();
-        }
-        else if (eventPos == 2)
-        {
-            EventStarter();
-        }
-
-
-    }
+   
 
     public void ResetUI()
     {
         nextButton.SetActive(false);
-        prevButton.SetActive(false);
         choice1Button.SetActive(false);
         choice2Button.SetActive(false);
     }

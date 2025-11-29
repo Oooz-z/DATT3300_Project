@@ -52,8 +52,7 @@ public class InventoryManager : MonoBehaviour
                 SpawnNewItem(item, slot);
                 collectedItems.Add(item); // Track it
                 itemCounter++;
-                //Debug.Log($"Item {itemCounter}/10");
-                prompt.text = $"{itemCounter}/10";
+                prompt.text = $"{itemCounter}/12";
                 ItemAddedNotice.SetActive(true);
                 return true;
             }

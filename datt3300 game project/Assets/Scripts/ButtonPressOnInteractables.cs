@@ -12,6 +12,8 @@ public class ButtonPressOnInteractables : MonoBehaviour
         // Try to find an Interactables component on this object
         interactable = GetComponent<Interactables>();
     }
+
+
     private void OnMouseDown()
     {
         if (!isDeductionPanelActive())
@@ -19,7 +21,6 @@ public class ButtonPressOnInteractables : MonoBehaviour
             Interaction();
             dialoguePanelAnimator.SetTrigger("Open");
         }
-
 
 
     }
@@ -51,5 +52,10 @@ public class ButtonPressOnInteractables : MonoBehaviour
     {
         return DeductionPanelManager.Instance != null && DeductionPanelManager.Instance.deductionPanel.activeSelf;
 }
+
+    private bool isDialougePanelActive()
+    {
+        return DialogueManager.Instance != null && DialogueManager.Instance.dialoguePanel.activeSelf;
+    }
 
 }

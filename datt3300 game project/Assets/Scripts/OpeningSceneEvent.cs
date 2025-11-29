@@ -181,6 +181,7 @@ public class OpeningSceneEvent : MonoBehaviour
 
     IEnumerator EventNine()
     {
+        sb3Group.SetActive(false);
         dialogue.text = "Yet some souls resist. They cling to old memories, old wounds. They drift through the world in unrest, staining the air with sorrow, fear, and rage.";
         yield return new WaitForEndOfFrame();
         eventPos = 10;
@@ -188,15 +189,15 @@ public class OpeningSceneEvent : MonoBehaviour
 
     IEnumerator EventTen()
     {
-        sb3Group.SetActive(false);
-        dialogue.text = "Those are the ones that fall to me.";
+       
+        dialogue.text = "Those are the ones that fall to me...";
         yield return new WaitForEndOfFrame();
         eventPos = 11;
     }
 
     IEnumerator EventEleven()
     {
-        dialogue.text = "As a Soul Warden and detective, I track these wandering spirit, calm their turbulence, and cleanse them so they can return to the cycle.";
+        dialogue.text = "As a Soul Shepherd, I track these wandering spirit, calm their turbulence, and cleanse them so they can return to the cycle.";
         yield return new WaitForEndOfFrame();
         eventPos = 12;
     }
