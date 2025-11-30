@@ -25,6 +25,8 @@ public class OpeningSceneEvent : MonoBehaviour
     [SerializeField] GameObject sb6;
     [SerializeField] GameObject sb7;
 
+    [SerializeField] AudioSource source;
+
     void Start()
     {
         fadeIn.SetActive(true);
@@ -35,6 +37,7 @@ public class OpeningSceneEvent : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            source.Play();
             if (eventPos == 1)
             {
                 StartCoroutine(EventOne());

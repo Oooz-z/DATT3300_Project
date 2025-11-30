@@ -7,18 +7,21 @@ public class ButtonPressOnInteractables : MonoBehaviour
     private Interactables interactable;
 
     [SerializeField] Animator dialoguePanelAnimator;
+    [SerializeField] AudioSource source;
     private void Start()
     {
         // Try to find an Interactables component on this object
         interactable = GetComponent<Interactables>();
+
     }
 
 
     private void OnMouseDown()
     {
-        if (!isDeductionPanelActive())
+        if (!isDeductionPanelActive() && !isDialougePanelActive() && !isVictimFilePanelActive())
         {
             Interaction();
+            source.Play();
             dialoguePanelAnimator.SetTrigger("Open");
         }
 
@@ -37,7 +40,7 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        if ( !isDeductionPanelActive())
+        if ( !isDeductionPanelActive() && !isDialougePanelActive() && !isVictimFilePanelActive())
         {
             MouseControl.instance.Clickable();
         }
@@ -50,12 +53,24 @@ public class ButtonPressOnInteractables : MonoBehaviour
 
     private bool isDeductionPanelActive()
     {
+        
         return DeductionPanelManager.Instance != null && DeductionPanelManager.Instance.deductionPanel.activeSelf;
-}
+    }
 
     private bool isDialougePanelActive()
     {
-        return DialogueManager.Instance != null && DialogueManager.Instance.dialoguePanel.activeSelf;
+        if (DialogueManager.Instance == null)
+            return false;
+
+        if (!DialogueManager.Instance.dialoguePanel.activeInHierarchy)
+            return false;
+        var state = dialoguePanelAnimator.GetCurrentAnimatorStateInfo(0);
+        return state.IsName("DiaPanelOpened");
+    }
+
+    private bool isVictimFilePanelActive()
+    {
+        return DeductionPanelManager.Instance != null && DeductionPanelManager.Instance.victimFilePanel.activeSelf;
     }
 
 }

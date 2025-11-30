@@ -17,4 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 93dadbc177e52d04588f473707a5c8f8, type: 3}
   itemName: SuicideNote
   type: item
-  dialogueLine: This is a will note.
+  dialogueLine: "A slightly damp sheet of paper rests on the floor, its corners curling
+    subtly from the moisture in the air. The ink is only slightly smudged but still
+    readable, the strokes uneven as if the writer paused often before continuing.
+    \nIt\u2019s a suicide note.\nNear the signature, a faint extra line trails off
+    in a direction that doesn\u2019t match the rest of the handwriting."

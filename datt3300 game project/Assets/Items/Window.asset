@@ -17,6 +17,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: b196d87a0c3e61a4099e3118b033d16c, type: 3}
   itemName: Window
   type: item
-  dialogueLine: 'The window is completely stuck, the frame swollen with moisture.
-    Deeper in the track, something hard is wedged in the corner, a flat piece of
-    wood, hammered in tightly. '
+  dialogueLine: 'The window is completely stuck. Deeper in the track, something hard
+    is wedged in the corner, a flat piece of wood, hammered in tightly. '

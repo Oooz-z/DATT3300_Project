@@ -26,6 +26,8 @@ public class DeductionPanelManager : MonoBehaviour
 
     public TMP_Text prompt;
     public GameObject deductionPanel;
+    public GameObject victimFilePanel;
+
 
     private void Awake()
     {
@@ -113,6 +115,7 @@ public class DeductionPanelManager : MonoBehaviour
             if (AllAnswersCorrect())
             {
                 prompt.text = "Deduction Completed!";
+
             }
             else
             {
@@ -151,10 +154,6 @@ public class DeductionPanelManager : MonoBehaviour
         }
         return true;
     }
-
-
-
-
 
 
 }
