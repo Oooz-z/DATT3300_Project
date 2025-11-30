@@ -17,5 +17,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c9c2e170a8e487e4c92bef7c2bceb9f2, type: 3}
   itemName: Fan
   type: item
-  dialogueLine: The ventilation fan is silent. The casing feels damp to the touch,
-    and when opened, a wad of tissue is jammed into the internal blades.
+  dialogueLine: "The ventilation fan is silent. \nThe casing feels damp to the touch. "

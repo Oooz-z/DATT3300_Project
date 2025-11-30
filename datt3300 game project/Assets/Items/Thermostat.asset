@@ -17,5 +17,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 3b00a74c36d1c294bb6af38d2e045b5b, type: 3}
   itemName: Thermostat
   type: item
-  dialogueLine: The thermostat reads 21 degrees and 40 percent humidity, perfectly
-    normal, yet the room feels uncomfortably stifling.
+  dialogueLine: "The thermostat reads 21 degrees and 40 percent humidity, perfectly
+    normal, yet the room feels uncomfortably stifling. \nAs soon as the thermostat
+    picks up a surge in heat or moisture, the ventilation fan should activate automatically,
+    sweeping through the room to correct the air, its response triggered by a smart
+    control module that relays the signal remotely. "
